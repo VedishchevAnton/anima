@@ -86,14 +86,24 @@ GOOGLE_RECAPTCHA_SITE_KEY = '6LehOaAUAAAAANp_PYW4BgXVZNiP3VcQ3oVH8y52'
 GOOGLE_RECAPTCHA_SECRET_KEY = '6LehOaAUAAAAABWClXRh45yBegULSytqthRQLruR'
 
 # Email
+# Для Mail.ru: EMAIL_HOST = 'smtp.mail.ru', EMAIL_PORT = 465, EMAIL_USE_TLS = False, EMAIL_USE_SSL = True
+# Для Yandex:  EMAIL_HOST = 'smtp.yandex.ru', EMAIL_PORT = 465, EMAIL_USE_TLS = False, EMAIL_USE_SSL = True
+# Для Gmail:   EMAIL_HOST = 'smtp.gmail.com', EMAIL_PORT = 587, EMAIL_USE_TLS = True, EMAIL_USE_SSL = False
+# EMAIL_HOST_USER — ваш email (например anima.market@mail.ru)
+# EMAIL_HOST_PASSWORD — пароль приложения (не пароль от почты!)
+#   Mail.ru: Настройки → Безопасность → Пароли для внешних приложений
+#   Yandex:  id.yandex.ru → Безопасность → Пароли приложений
+#   Gmail:   myaccount.google.com → Безопасность → Пароли приложений
+# Рекомендуется указывать в anima/local.py, чтобы не пушить пароли в git
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = ''
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_PORT = 465
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 FEEDBACK_EMAIL = 'anima.market@mail.ru'
-DEFAULT_FROM_EMAIL = 'noreply@anima.market'
+DEFAULT_FROM_EMAIL = 'anima.market@mail.ru'
 
 # Local settings override
 try:
