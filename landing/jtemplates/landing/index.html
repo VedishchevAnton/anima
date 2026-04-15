@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }}</title>
+    <meta name="description" content="{{ page_description }}">
+    <meta name="theme-color" content="#F0EBE3">
+    <link rel="stylesheet" href="{{ static('css/bootstrap.min.css') }}?v=5.3.3">
+    <link rel="stylesheet" href="{{ static('css/bootstrap-icons.min.css') }}?v=1.11">
+    <link rel="stylesheet" href="{{ static('css/google-fonts.css') }}?v=1.0">
+    <link rel="stylesheet" href="{{ static('css/swiper-bundle.min.css') }}?v=11">
+    <link rel="stylesheet" href="{{ static('css/style.css') }}?v=1.1">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="header-inner main-col">
+            <a href="/" class="header-logo">
+                <img src="{{ static('images/anima-logo.svg') }}" alt="Anima">
+            </a>
+
+            <nav>
+                <ul class="header-nav">
+                    {% for item in nav_items %}
+                        <li><a href="{{ item.href }}"{% if item.target %} target="{{ item.target }}"{% endif %}>{{ item.label }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                {% for link in social_links %}
+                    <a href="{{ link.href }}" class="header-btn" target="_blank" title="{{ link.title }}">
+                        <img src="{{ static(link.icon) }}" alt="{{ link.title }}">
+                    </a>
+                {% endfor %}
+                <a href="#contacts" class="header-btn header-btn-contact">Контакты</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="intro" class="s-intro">
+        <div class="section-inner s-intro-inner main-col">
+            <div class="row g-0 align-items-center h-100">
+                <div class="col-6 section-text intro-text">
+                    <h1 class="title-lg">Техника для кофе<br>в Екатеринбурге</h1>
+                    <p class="subtitle">Обслуживание, ремонт, подбор, аренда кофейного оборудования. Весь спектр услуг профессионального сервиса для дома, офиса и бизнеса</p>
+                </div>
+                <div class="col-6"></div>
+            </div>
+            <div class="machine-wrapper">
+                <img src="{{ static('images/grain_layer_1.png') }}" alt="" class="grain grain-back">
+                <img src="{{ static('images/coffee_machine_1.png') }}" alt="Кофемашина" class="machine">
+                <img src="{{ static('images/grain_layer_2.png') }}" alt="" class="grain grain-front">
+            </div>
+        </div>
+    </section>
+
+    <section id="service" class="s-service">
+        <div class="section-inner s-service-inner main-col">
+            <div class="row g-0 align-items-center h-100">
+                <div class="col-6 section-text service-text">
+                    <h2 class="title-lg">Обслуживание<br>кофемашин</h2>
+                    <p class="subtitle">Обслуживание домашних и офисных автоматических кофемашин от 1 до 3 дней</p>
+                </div>
+                <div class="col-6"></div>
+            </div>
+            <a href="https://anima.market/services/servicekofe/" target="_blank" class="promo-circle">
+                <span class="promo-bold">бесплатно</span>
+                <span>при покупке</span>
+                <span>anima кофе</span>
+                <span class="promo-bold">от 10 кг</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="rent" class="s-rent">
+        <div class="section-inner s-rent-inner main-col">
+            <div class="row g-0 h-100 align-items-center">
+                <div class="col-5 rent-text">
+                    <h2 class="title-lg section-title">Аренда кофейного<br>оборудования</h2>
+
+                    {% for feat in rent_features %}
+                        <div class="rent-feature">
+                            <p class="rent-feature-title">{{ feat.title }}</p>
+                            <p class="rent-feature-desc">{{ feat.desc }}</p>
+                        </div>
+                    {% endfor %}
+
+                    <a href="https://anima.market/services/servicekofe/" target="_blank" class="btn-cta">Узнать подробнее</a>
+                </div>
+                <div class="col-7 rent-slider-col">
+                    <div class="swiper rent-swiper">
+                        <div class="swiper-wrapper">
+                            {% for item in rent_items %}
+                                <div class="swiper-slide">
+                                    <div class="rent-card">
+                                        <div class="rent-card-gallery-wrap">
+                                            <div class="swiper rent-card-gallery">
+                                                <div class="swiper-wrapper">
+                                                    {% for v in item.variants %}
+                                                        <div class="swiper-slide">
+                                                            <div class="rent-card-img"><img src="{{ static(v.image) }}" alt="{{ item.title }}"></div>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+                                                {% if item.variants|length > 1 %}
+                                                    <div class="swiper-pagination rent-card-pagination"></div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <p class="rent-card-price">{{ item.price }}</p>
+                                        <h3 class="rent-card-title">{{ item.title }}</h3>
+                                        <p class="rent-card-desc">{{ item.desc }}</p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="rent-slider-nav rent-slider-nav-left">
+                        <button class="rent-prev"><i class="bi bi-arrow-left"></i></button>
+                    </div>
+                    <div class="rent-slider-nav rent-slider-nav-right">
+                        <button class="rent-next"><i class="bi bi-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="selection" class="s-selection">
+        <div class="s-selection-inner main-col">
+            <h2 class="section-title s-selection-title">Подбор кофемашин для покупки</h2>
+            <div class="row g-4">
+                {% for card in selection_cards %}
+                    <div class="col-6">
+                        <div class="selection-card">
+                            <img src="{{ static(card.image) }}" alt="{{ card.alt }}">
+                            <h3 class="selection-card-title">{{ card.title }}</h3>
+                            <p class="selection-card-desc">{{ card.desc }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <a href="https://anima.market/services/servicekofe/" target="_blank" class="btn-cta">Узнать подробнее</a>
+        </div>
+    </section>
+
+    <section id="roasting" class="s-roasting">
+        <div class="section-inner s-roasting-inner main-col">
+            <div class="row g-0 h-100">
+                <div class="col-5 rent-text">
+                    <h2 class="title-lg section-title">Собственная обжарка</h2>
+
+                    {% for feat in roasting_features %}
+                        <div class="rent-feature">
+                            <p class="rent-feature-title">{{ feat.title }}</p>
+                            <p class="rent-feature-desc">{{ feat.desc }}</p>
+                        </div>
+                    {% endfor %}
+
+                    <a href="https://anima.market/services/servicekofe/" target="_blank" class="btn-cta">Узнать подробнее</a>
+                </div>
+                <div class="col-7 roasting-img-col">
+                    <img src="{{ static('images/coffee_machine_2.png') }}" alt="Обжарка кофе" class="roasting-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="s-catalog">
+        <div class="s-catalog-inner main-col">
+            <h2 class="section-title s-catalog-title">Перейти в каталог</h2>
+            <a href="#" class="btn-catalog">Магазин</a>
+        </div>
+    </section>
+
+    <section id="contacts" class="s-contacts">
+        <div class="s-contacts-inner main-col">
+            <div class="row g-0 h-100 align-items-center">
+                <div class="col-5 rent-text">
+                    <h2 class="title-lg section-title">Контакты</h2>
+
+                    {% for info in contact_info %}
+                        <div class="rent-feature">
+                            <p class="rent-feature-title">{{ info.title }}</p>
+                            {% for line in info.lines %}
+                                {% if line is mapping %}
+                                    <p class="rent-feature-desc"><a href="{{ line.href }}" class="contact-link">{{ line.text }}</a></p>
+                                {% else %}
+                                    <p class="rent-feature-desc">{{ line }}</p>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+
+                    <div class="contacts-socials">
+                        {% for link in social_links %}
+                            <a href="{{ link.href }}" class="header-btn" target="_blank" title="{{ link.title }}">
+                                <img src="{{ static(link.icon) }}" alt="{{ link.title }}">
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-7 contacts-map-col">
+                    <div id="contacts-map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="s-partner">
+        <div class="s-partner-inner main-col">
+            <h2 class="section-title s-partner-title">Anima Market - ваш партнёр<br>в мире качественного кофе.</h2>
+            <a href="#" class="btn-partner" data-modal="feedback">Связаться с нами</a>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-inner main-col">
+            <div class="footer-left">
+                <a href="/" class="footer-logo">
+                    <img src="{{ static('images/anima-logo.svg') }}" alt="Anima">
+                </a>
+                <p class="footer-title">Техника для кофе в Екатеринбурге</p>
+            </div>
+            <nav class="footer-nav">
+                {% for item in nav_items %}
+                    <a href="{{ item.href }}"{% if item.target %} target="{{ item.target }}"{% endif %}>{{ item.label }}</a>
+                {% endfor %}
+            </nav>
+        </div>
+    </footer>
+
+    {% include "landing/feedback_modal.html" %}
+
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU"></script>
+    <script src="{{ static('js/swiper-bundle.min.js') }}?v=11"></script>
+    <script src="{{ static('js/bootstrap.bundle.min.js') }}?v=5.3.3"></script>
+    <script src="{{ static('js/feedback.js') }}?v=1.0"></script>
+    <script src="{{ static('js/main.js') }}?v=1.0"></script>
+</body>
+</html>

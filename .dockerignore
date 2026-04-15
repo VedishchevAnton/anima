@@ -1,0 +1,16 @@
+.git
+.idea
+.venv
+venv
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+dist
+build
+collected_static
+logs
+*.log
+db.sqlite3
+anima/local.py
+.env

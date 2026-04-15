@@ -1,0 +1,43 @@
+<div class="modal-overlay" id="feedbackModal">
+    <div class="modal-window">
+        <button class="modal-close" id="modalClose">&times;</button>
+        <h3 class="modal-title">Связаться с нами</h3>
+        <p class="modal-subtitle">Заполните форму и мы свяжемся с вами</p>
+        <form id="feedbackForm" class="modal-form" novalidate>
+            <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+            <div class="modal-form-row">
+                <div class="modal-form-group">
+                    <input type="text" name="first_name" placeholder="Имя" required>
+                    <span class="modal-field-error"></span>
+                </div>
+                <div class="modal-form-group">
+                    <input type="text" name="last_name" placeholder="Фамилия" required>
+                    <span class="modal-field-error"></span>
+                </div>
+            </div>
+            <div class="modal-form-row">
+                <div class="modal-form-group">
+                    <input type="tel" name="phone" id="phoneInput" placeholder="+7 (___) ___-__-__" required>
+                    <span class="modal-field-error"></span>
+                </div>
+                <div class="modal-form-group">
+                    <input type="email" name="email" placeholder="E-mail" required>
+                    <span class="modal-field-error"></span>
+                </div>
+            </div>
+            <div class="modal-form-group">
+                <textarea name="message" placeholder="Сообщение" rows="4" required></textarea>
+                <span class="modal-field-error"></span>
+            </div>
+            <div class="modal-form-bottom">
+                <div class="g-recaptcha" data-sitekey="{{ RECAPTCHA_SITE_KEY }}"></div>
+                <span class="modal-field-error" id="captchaError"></span>
+            </div>
+            <button type="submit" class="btn-modal-submit">Отправить</button>
+            <p class="modal-message" id="modalMessage"></p>
+        </form>
+        <div class="modal-success" id="modalSuccess">
+            <p class="modal-success-text">Заявка отправлена!<br>Мы скоро с вами свяжемся.</p>
+        </div>
+    </div>
+</div>
