@@ -8,6 +8,7 @@
     --cl-white: #fff;
     --cl-border: #BDC3D7;
     --cl-text-gray: #828282;
+    --cl-bg-section: #F7F7F7;
 
     --font-main: 'Inter', sans-serif;
     --font-accent: 'Brygada 1918', serif;
@@ -70,7 +71,6 @@ section {
 /* Shared hover */
 .header-btn:hover,
 .btn-cta:hover,
-.btn-partner:hover,
 .rent-slider-nav button:hover {
     opacity: 0.85;
 }
@@ -472,7 +472,7 @@ section {
     background-color: var(--cl-brown);
 }
 .s-partner {
-    background-color: #F7F7F7;
+    background-color: var(--cl-bg-section);
 }
 .s-catalog-inner,
 .s-partner-inner {
@@ -493,19 +493,7 @@ section {
     color: var(--cl-bg-dark);
     margin: 0;
 }
-.btn-partner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 76px;
-    font-weight: var(--fw-medium);
-    font-size: 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: opacity 0.2s ease;
-}
-.btn-partner {
-    width: 275px;
+.s-partner .btn-cta {
     background-color: var(--cl-bg-dark);
     color: var(--cl-white);
 }
@@ -1070,10 +1058,6 @@ section {
     .btn-cta {
         font-size: 14px;
         padding: 12px 24px;
-    }
-    .btn-partner {
-        width: 100%;
-        height: 56px;
     }
     .s-catalog-title,
     .s-partner-title {
