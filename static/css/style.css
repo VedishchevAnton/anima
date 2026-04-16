@@ -221,7 +221,7 @@ section {
     width: 30%;
     height: auto;
     transform: rotate(-0.9deg);
-    right: -1px;
+    right: 1px;
 }
 
 .grain-front {
