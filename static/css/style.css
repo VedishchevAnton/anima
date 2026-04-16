@@ -256,13 +256,21 @@ section {
     right: 20%;
     width: 220px;
     height: 220px;
-    border-radius: 50%;
-    background-color: var(--cl-brown);
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     z-index: 10;
+}
+.promo-medal-burst-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    animation: spin 15s linear infinite reverse;
+}
+.promo-medal-burst {
+    fill: var(--cl-brown);
 }
 .promo-medal-ring {
     position: absolute;
