@@ -70,7 +70,7 @@ RENT_ITEMS = [
     {
         'title': 'Кофемашина рожковая Nuova Simonelli Aurelia WAVE',
         'desc': 'оборудование для традиционного приготовления эспрессо и других горячих напитков. Необходимая дозировка производится в автоматическом режиме, есть возможность установки высокой посуды для выдачи напитка',
-        'price': 'от 5 000 ₽/мес',
+        'price': '5 000 ₽/мес',
         'variants': [
             {'image': 'images/rent-machine/rent-machine-1.png'},
             {'image': 'images/rent-machine/rent-machine-2.png'},
