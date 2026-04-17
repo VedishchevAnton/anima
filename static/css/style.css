@@ -160,6 +160,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
     z-index: 5;
 }
 
@@ -955,22 +956,28 @@ section {
         font-size: 18px;
     }
     .s-service {
-        height: 400px;
+        height: auto;
+        padding: 120px 0 100px;
+    }
+    .s-service .row {
+        flex-direction: column;
+    }
+    .s-service .col-6 {
+        width: 100%;
     }
     .promo-medal {
-        width: 170px;
-        height: 170px;
-        right: 10%;
-        bottom: -60px;
+        width: 120px;
+        height: 120px;
+        top: -121px;
+        right: 16px;
+        bottom: auto;
+        left: auto;
     }
     .promo-medal-center {
-        font-size: 13px;
-    }
-    .promo-medal-ring text {
-        font-size: 12px;
+        font-size: 10px;
     }
     .promo-bold {
-        font-size: 22px;
+        font-size: 16px;
     }
     .rent-text,
     .service-text,
@@ -982,9 +989,20 @@ section {
     .contacts-socials {
         justify-content: center;
     }
+    .section-text {
+        align-items: center;
+    }
     .s-rent .btn-cta,
     .s-roasting .btn-cta {
         margin: 8px auto 0;
+    }
+    .s-selection .col-6 {
+        width: 100%;
+    }
+    .s-selection .btn-cta {
+        display: block;
+        margin: 24px auto 0;
+        text-align: center;
     }
     .rent-feature-title {
         font-size: 20px;
@@ -1046,9 +1064,6 @@ section {
     .section-title {
         font-size: 28px;
     }
-    .s-selection-title {
-        font-size: 36px;
-    }
     .rent-feature-title {
         font-size: 18px;
     }
@@ -1082,5 +1097,11 @@ section {
     .modal-form-bottom .g-recaptcha {
         transform: scale(0.85);
         transform-origin: 0 0;
+    }
+    .promo-medal-center {
+        font-size: 10px;
+    }
+    .promo-bold {
+        font-size: 16px;
     }
 }
