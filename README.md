@@ -1,10 +1,10 @@
-# Anima — Лендинг для продукции
+# Anima — Лендинг для кофейного оборудования
 
-Веб-приложение на Django 6 + Jinja2.
+Веб-приложение на FastAPI + Jinja2.
 
 ## Требования
 
-- Python 3.14+
+- Python 3.10+
 - Git
 
 ## Установка (без Docker)
@@ -38,39 +38,61 @@ pip install -r requirements.txt
 
 ### 4. Запустить сервер
 
-Для запуска без PostgreSQL (лендинг без БД):
-
 ```bash
-set USE_SQLITE=1          # Windows
-export USE_SQLITE=1       # Linux / macOS
-
-python manage.py runserver
+uvicorn main:app --reload
 ```
 
 Сайт будет доступен по адресу: http://127.0.0.1:8000
 
-### 5. (Опционально) Настройка PostgreSQL
+### 5. Переменные окружения
 
-Если нужна база данных, создайте файл `anima/local.py`:
+| Переменная | Описание | По умолчанию |
+|---|---|---|
+| `DEBUG` | `true` — заявки выводятся в консоль, `false` — отправляются на почту | `false` |
+| `EMAIL_HOST` | SMTP-сервер (например `smtp.mail.ru`) | — |
+| `EMAIL_PORT` | Порт SMTP | `465` |
+| `EMAIL_USER` | Логин SMTP (e-mail отправителя) | — |
+| `EMAIL_PASSWORD` | Пароль приложения (не пароль от почты!) | — |
+| `EMAIL_FROM` | Адрес отправителя | `anima.market@mail.ru` |
+| `FEEDBACK_EMAIL` | Куда приходят заявки | `anima.market@mail.ru` |
+| `RECAPTCHA_SITE_KEY` | Ключ сайта reCAPTCHA v2 | тестовый ключ |
+| `RECAPTCHA_SECRET_KEY` | Секретный ключ reCAPTCHA v2 | тестовый ключ |
 
-```python
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'anima',
-        'USER': 'ваш_пользователь',
-        'PASSWORD': 'ваш_пароль',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
-}
-```
+> **Тестовые ключи reCAPTCHA** работают на любом домене (включая localhost).
+> Для продакшена замените их на свои ключи из [Google reCAPTCHA Admin](https://www.google.com/recaptcha/admin).
 
-Затем выполните миграции:
+### Настройка для продакшена
 
+Задайте переменные окружения перед запуском:
+
+**Linux / macOS:**
 ```bash
-python manage.py migrate
+export DEBUG=false
+export EMAIL_HOST=smtp.mail.ru
+export EMAIL_USER=anima.market@mail.ru
+export EMAIL_PASSWORD=пароль_приложения
+export RECAPTCHA_SITE_KEY=ваш_ключ_сайта
+export RECAPTCHA_SECRET_KEY=ваш_секретный_ключ
 ```
+
+**Windows (PowerShell):**
+```powershell
+$env:DEBUG="false"
+$env:EMAIL_HOST="smtp.mail.ru"
+$env:EMAIL_USER="anima.market@mail.ru"
+$env:EMAIL_PASSWORD="пароль_приложения"
+$env:RECAPTCHA_SITE_KEY="ваш_ключ_сайта"
+$env:RECAPTCHA_SECRET_KEY="ваш_секретный_ключ"
+```
+
+### Для локальной разработки
+
+Если хотите тестировать отправку формы без почты, задайте `DEBUG=true`:
+```powershell
+$env:DEBUG="true"
+uvicorn main:app --reload
+```
+Заявки будут выводиться в консоль.
 
 ---
 
@@ -98,24 +120,18 @@ docker compose up --build
 docker compose down
 ```
 
-### Перезапуск (без пересборки)
-
-```bash
-docker compose up
-```
-
 ---
 
 ## Структура проекта
 
 ```
 anima/
-├── anima/           # Настройки Django (settings, urls, wsgi)
-├── landing/         # Приложение лендинга (views, templates)
-├── static/          # Статические файлы (CSS, JS, изображения)
-├── media/           # Загружаемые файлы
-├── manage.py        # Точка входа Django
-├── requirements.txt # Зависимости Python
-├── Dockerfile       # Конфигурация Docker
+├── main.py              # FastAPI приложение
+├── config.py            # Настройки (env-переменные)
+├── data.py              # Данные для шаблонов
+├── templates/           # Jinja2 шаблоны
+├── static/              # CSS, JS, изображения, шрифты
+├── requirements.txt     # Зависимости Python
+├── Dockerfile
 └── docker-compose.yml
 ```

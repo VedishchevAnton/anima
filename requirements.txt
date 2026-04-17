@@ -1,3 +1,5 @@
-Django==5.2
-Jinja2
-requests
+fastapi
+uvicorn[standard]
+jinja2
+httpx
+python-multipart

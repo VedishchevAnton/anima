@@ -127,7 +127,6 @@
 
         fetch('/feedback/', {
             method: 'POST',
-            headers: { 'X-Requested-With': 'XMLHttpRequest' },
             body: formData
         })
         .then(function(r) { return r.json(); })

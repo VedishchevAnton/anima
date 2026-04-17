@@ -6,11 +6,11 @@
     <title>{{ page_title }}</title>
     <meta name="description" content="{{ page_description }}">
     <meta name="theme-color" content="#F0EBE3">
-    <link rel="stylesheet" href="{{ static('css/bootstrap.min.css') }}?v=5.3.3">
-    <link rel="stylesheet" href="{{ static('css/bootstrap-icons.min.css') }}?v=1.11">
-    <link rel="stylesheet" href="{{ static('css/google-fonts.css') }}?v=1.0">
-    <link rel="stylesheet" href="{{ static('css/swiper-bundle.min.css') }}?v=11">
-    <link rel="stylesheet" href="{{ static('css/style.css') }}?v=1.2">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap.min.css') }}?v=5.3.3">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap-icons.min.css') }}?v=1.11">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/google-fonts.css') }}?v=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/swiper-bundle.min.css') }}?v=11">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}?v=1.2">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
@@ -18,7 +18,7 @@
     <header class="site-header">
         <div class="header-inner main-col">
             <a href="/" class="header-logo">
-                <img src="{{ static('images/anima-logo.svg') }}" alt="Anima">
+                <img src="{{ url_for('static', path='images/anima-logo.svg') }}" alt="Anima">
             </a>
 
             <nav>
@@ -32,7 +32,7 @@
             <div class="header-actions">
                 {% for link in social_links %}
                     <a href="{{ link.href }}" class="header-btn" target="_blank" title="{{ link.title }}">
-                        <img src="{{ static(link.icon) }}" alt="{{ link.title }}">
+                        <img src="/static/{{ link.icon }}" alt="{{ link.title }}">
                     </a>
                 {% endfor %}
                 <a href="#contacts" class="header-btn header-btn-contact">Контакты</a>
@@ -50,9 +50,9 @@
                 <div class="col-6"></div>
             </div>
             <div class="machine-wrapper">
-                <img src="{{ static('images/grain_layer_1.png') }}" alt="" class="grain grain-back">
-                <img src="{{ static('images/coffee_machine_1.png') }}" alt="Кофемашина" class="machine">
-                <img src="{{ static('images/grain_layer_2.png') }}" alt="" class="grain grain-front">
+                <img src="{{ url_for('static', path='images/grain_layer_1.png') }}" alt="" class="grain grain-back">
+                <img src="{{ url_for('static', path='images/coffee_machine_1.png') }}" alt="Кофемашина" class="machine">
+                <img src="{{ url_for('static', path='images/grain_layer_2.png') }}" alt="" class="grain grain-front">
             </div>
         </div>
     </section>
@@ -115,7 +115,7 @@
                                                 <div class="swiper-wrapper">
                                                     {% for v in item.variants %}
                                                         <div class="swiper-slide">
-                                                            <div class="rent-card-img"><img src="{{ static(v.image) }}" alt="{{ item.title }}"></div>
+                                                            <div class="rent-card-img"><img src="/static/{{ v.image }}" alt="{{ item.title }}"></div>
                                                         </div>
                                                     {% endfor %}
                                                 </div>
@@ -150,7 +150,7 @@
                 {% for card in selection_cards %}
                     <div class="col-6">
                         <div class="selection-card">
-                            <img src="{{ static(card.image) }}" alt="{{ card.alt }}">
+                            <img src="/static/{{ card.image }}" alt="{{ card.alt }}">
                             <h3 class="selection-card-title">{{ card.title }}</h3>
                             <p class="selection-card-desc">{{ card.desc }}</p>
                         </div>
@@ -177,7 +177,7 @@
                     <a href="https://anima.market/services/servicekofe/" target="_blank" class="btn-cta">Узнать подробнее</a>
                 </div>
                 <div class="col-7 roasting-img-col">
-                    <img src="{{ static('images/coffee_machine_2.png') }}" alt="Обжарка кофе" class="roasting-img">
+                    <img src="{{ url_for('static', path='images/coffee_machine_2.png') }}" alt="Обжарка кофе" class="roasting-img">
                 </div>
             </div>
         </div>
@@ -212,7 +212,7 @@
                     <div class="contacts-socials">
                         {% for link in social_links %}
                             <a href="{{ link.href }}" class="header-btn" target="_blank" title="{{ link.title }}">
-                                <img src="{{ static(link.icon) }}" alt="{{ link.title }}">
+                                <img src="/static/{{ link.icon }}" alt="{{ link.title }}">
                             </a>
                         {% endfor %}
                     </div>
@@ -235,7 +235,7 @@
         <div class="footer-inner main-col">
             <div class="footer-left">
                 <a href="/" class="footer-logo">
-                    <img src="{{ static('images/anima-logo.svg') }}" alt="Anima">
+                    <img src="{{ url_for('static', path='images/anima-logo.svg') }}" alt="Anima">
                 </a>
                 <p class="footer-title">Техника для кофе в Екатеринбурге</p>
             </div>
@@ -247,12 +247,12 @@
         </div>
     </footer>
 
-    {% include "landing/feedback_modal.html" %}
+    {% include "feedback_modal.html" %}
 
     <script src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU"></script>
-    <script src="{{ static('js/swiper-bundle.min.js') }}?v=11"></script>
-    <script src="{{ static('js/bootstrap.bundle.min.js') }}?v=5.3.3"></script>
-    <script src="{{ static('js/feedback.js') }}?v=1.0"></script>
-    <script src="{{ static('js/main.js') }}?v=1.0"></script>
+    <script src="{{ url_for('static', path='js/swiper-bundle.min.js') }}?v=11"></script>
+    <script src="{{ url_for('static', path='js/bootstrap.bundle.min.js') }}?v=5.3.3"></script>
+    <script src="{{ url_for('static', path='js/feedback.js') }}?v=1.0"></script>
+    <script src="{{ url_for('static', path='js/main.js') }}?v=1.0"></script>
 </body>
 </html>
