@@ -833,8 +833,8 @@ section {
         padding-top: 160px;
         padding-bottom: 40px;
     }
+
     .intro-text {
-        width: 100%;
         text-align: center;
     }
     .intro-text .btn-cta {
@@ -842,6 +842,7 @@ section {
     }
     .s-intro .row {
         flex-direction: column;
+        align-items: center;
     }
     .machine-wrapper {
         position: relative;
@@ -869,9 +870,9 @@ section {
         transform: rotate(28.1deg);
     }
     .grain-front {
-        bottom: 10%;
-        right: -39%;
-        transform: rotate(-324.36deg);
+        bottom: 24%;
+        right: -43%;
+        transform: rotate(-292.36deg);
     }
     .s-rent,
     .s-roasting {

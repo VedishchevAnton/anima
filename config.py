@@ -14,6 +14,10 @@ class Settings:
         "RECAPTCHA_SECRET_KEY", "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
     )
 
+    # Yandex Maps
+    # Получить ключ: https://developer.tech.yandex.ru/
+    YANDEX_MAP_API_KEY: str = os.getenv("YANDEX_MAP_API_KEY", "")
+
     # Email (SMTP)
     # Для Mail.ru: smtp.mail.ru:465
     # Для Yandex:  smtp.yandex.ru:465

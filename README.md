@@ -57,9 +57,13 @@ uvicorn main:app --reload
 | `FEEDBACK_EMAIL` | Куда приходят заявки | `anima.market@mail.ru` |
 | `RECAPTCHA_SITE_KEY` | Ключ сайта reCAPTCHA v2 | тестовый ключ |
 | `RECAPTCHA_SECRET_KEY` | Секретный ключ reCAPTCHA v2 | тестовый ключ |
+| `YANDEX_MAP_API_KEY` | API-ключ Яндекс Карт | — |
 
 > **Тестовые ключи reCAPTCHA** работают на любом домене (включая localhost).
 > Для продакшена замените их на свои ключи из [Google reCAPTCHA Admin](https://www.google.com/recaptcha/admin).
+
+> **Яндекс Карты** работают без ключа с ограничениями.
+> Для продакшена получите бесплатный ключ на [developer.tech.yandex.ru](https://developer.tech.yandex.ru/) и задайте `YANDEX_MAP_API_KEY`.
 
 ### Настройка для продакшена
 
@@ -73,6 +77,7 @@ export EMAIL_USER=anima.market@mail.ru
 export EMAIL_PASSWORD=пароль_приложения
 export RECAPTCHA_SITE_KEY=ваш_ключ_сайта
 export RECAPTCHA_SECRET_KEY=ваш_секретный_ключ
+export YANDEX_MAP_API_KEY=ваш_ключ_яндекс_карт
 ```
 
 **Windows (PowerShell):**
@@ -83,6 +88,7 @@ $env:EMAIL_USER="anima.market@mail.ru"
 $env:EMAIL_PASSWORD="пароль_приложения"
 $env:RECAPTCHA_SITE_KEY="ваш_ключ_сайта"
 $env:RECAPTCHA_SECRET_KEY="ваш_секретный_ключ"
+$env:YANDEX_MAP_API_KEY="ваш_ключ_яндекс_карт"
 ```
 
 ### Для локальной разработки

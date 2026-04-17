@@ -3,9 +3,12 @@ from email.mime.text import MIMEText
 
 import httpx
 from fastapi import FastAPI, Form, Request
+from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from starlette.middleware import Middleware
+from starlette.middleware.base import BaseHTTPMiddleware
 
 from config import settings
 from data import (
@@ -20,29 +23,50 @@ from data import (
 
 app = FastAPI()
 
+app.add_middleware(GZipMiddleware, minimum_size=500)
+
+
+class CacheStaticMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request, call_next):
+        response = await call_next(request)
+        if request.url.path.startswith("/static/"):
+            response.headers["Cache-Control"] = "public, max-age=2592000"
+        return response
+
+
+app.add_middleware(CacheStaticMiddleware)
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 templates = Jinja2Templates(directory="templates")
 
 
+_cached_html: str | None = None
+
+
 @app.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse(
-        request,
-        "index.html",
-        {
-            "page_title": "Anima — техника для кофе в Екатеринбурге",
-            "page_description": "Обслуживание, ремонт, подбор, аренда кофейного оборудования",
-            "RECAPTCHA_SITE_KEY": settings.RECAPTCHA_SITE_KEY,
-            "nav_items": NAV_ITEMS,
-            "social_links": SOCIAL_LINKS,
-            "rent_features": RENT_FEATURES,
-            "roasting_features": ROASTING_FEATURES,
-            "selection_cards": SELECTION_CARDS,
-            "contact_info": CONTACT_INFO,
-            "rent_items": RENT_ITEMS,
-        },
-    )
+    global _cached_html
+    if _cached_html is None:
+        response = templates.TemplateResponse(
+            request,
+            "index.html",
+            {
+                "page_title": "Anima — техника для кофе в Екатеринбурге",
+                "page_description": "Обслуживание, ремонт, подбор, аренда кофейного оборудования",
+                "RECAPTCHA_SITE_KEY": settings.RECAPTCHA_SITE_KEY,
+                "YANDEX_MAP_API_KEY": settings.YANDEX_MAP_API_KEY,
+                "nav_items": NAV_ITEMS,
+                "social_links": SOCIAL_LINKS,
+                "rent_features": RENT_FEATURES,
+                "roasting_features": ROASTING_FEATURES,
+                "selection_cards": SELECTION_CARDS,
+                "contact_info": CONTACT_INFO,
+                "rent_items": RENT_ITEMS,
+            },
+        )
+        _cached_html = response.body.decode()
+    return HTMLResponse(_cached_html)
 
 
 async def check_recaptcha(token: str) -> bool:

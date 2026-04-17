@@ -249,7 +249,7 @@
 
     {% include "feedback_modal.html" %}
 
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey={{ YANDEX_MAP_API_KEY }}&lang=ru_RU"></script>
     <script src="{{ url_for('static', path='js/swiper-bundle.min.js') }}?v=11"></script>
     <script src="{{ url_for('static', path='js/bootstrap.bundle.min.js') }}?v=5.3.3"></script>
     <script src="{{ url_for('static', path='js/feedback.js') }}?v=1.0"></script>
