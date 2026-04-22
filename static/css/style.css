@@ -237,7 +237,7 @@ section {
 .s-service {
     height: 536px;
     position: relative;
-    background: url('../images/service_back.png') center/cover no-repeat;
+    background: url('../images/service_back.webp') center/cover no-repeat;
 }
 .s-service::before {
     content: '';

@@ -6,6 +6,10 @@
     <title>{{ page_title }}</title>
     <meta name="description" content="{{ page_description }}">
     <meta name="theme-color" content="#F0EBE3">
+    <link rel="preconnect" href="https://www.google.com">
+    <link rel="preconnect" href="https://api-maps.yandex.ru">
+    <link rel="preload" href="{{ url_for('static', path='css/style.css') }}?v=1.2" as="style">
+    <link rel="preload" href="{{ url_for('static', path='css/bootstrap.min.css') }}?v=5.3.3" as="style">
     <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap.min.css') }}?v=5.3.3">
     <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap-icons.min.css') }}?v=1.11">
     <link rel="stylesheet" href="{{ url_for('static', path='css/google-fonts.css') }}?v=1.0">
@@ -50,9 +54,9 @@
                 <div class="col-6"></div>
             </div>
             <div class="machine-wrapper">
-                <img src="{{ url_for('static', path='images/grain_layer_1.png') }}" alt="" class="grain grain-back">
-                <img src="{{ url_for('static', path='images/coffee_machine_1.png') }}" alt="Кофемашина" class="machine">
-                <img src="{{ url_for('static', path='images/grain_layer_2.png') }}" alt="" class="grain grain-front">
+                <img src="{{ url_for('static', path='images/grain_layer_1.webp') }}" alt="" class="grain grain-back">
+                <img src="{{ url_for('static', path='images/coffee_machine_1.webp') }}" alt="Кофемашина" class="machine">
+                <img src="{{ url_for('static', path='images/grain_layer_2.webp') }}" alt="" class="grain grain-front">
             </div>
         </div>
     </section>
@@ -115,7 +119,7 @@
                                                 <div class="swiper-wrapper">
                                                     {% for v in item.variants %}
                                                         <div class="swiper-slide">
-                                                            <div class="rent-card-img"><img src="/static/{{ v.image }}" alt="{{ item.title }}"></div>
+                                                            <div class="rent-card-img"><img src="/static/{{ v.image }}" alt="{{ item.title }}" loading="lazy"></div>
                                                         </div>
                                                     {% endfor %}
                                                 </div>
@@ -150,7 +154,7 @@
                 {% for card in selection_cards %}
                     <div class="col-6">
                         <div class="selection-card">
-                            <img src="/static/{{ card.image }}" alt="{{ card.alt }}">
+                            <img src="/static/{{ card.image }}" alt="{{ card.alt }}" loading="lazy">
                             <h3 class="selection-card-title">{{ card.title }}</h3>
                             <p class="selection-card-desc">{{ card.desc }}</p>
                         </div>
@@ -177,7 +181,7 @@
                     <a href="https://anima.market/services/servicekofe/" target="_blank" class="btn-cta">Узнать подробнее</a>
                 </div>
                 <div class="col-7 roasting-img-col">
-                    <img src="{{ url_for('static', path='images/coffee_machine_2.png') }}" alt="Обжарка кофе" class="roasting-img">
+                    <img src="{{ url_for('static', path='images/coffee_machine_2.webp') }}" alt="Обжарка кофе" class="roasting-img" loading="lazy">
                 </div>
             </div>
         </div>

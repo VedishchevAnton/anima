@@ -9,12 +9,12 @@ SOCIAL_LINKS = [
     {
         'title': 'MAX',
         'href': 'https://max.ru/u/f9LHodD0cOLhTEquOUGYaIJ3MGePRqxT5BKdpzzjGxkzgwdGeoJe_maf6rw',
-        'icon': 'images/max-logo.png',
+        'icon': 'images/max-logo.webp',
     },
     {
         'title': 'Telegram',
         'href': 'https://t.me/animarketcoffee',
-        'icon': 'images/telegram-logo.png',
+        'icon': 'images/telegram-logo.webp',
     },
 ]
 
@@ -48,13 +48,13 @@ SELECTION_CARDS = [
     {
         'title': 'Новые кофемашины',
         'desc': 'Поможем с покупкой в офис или домой новой кофемашины, выберем вариант без переплат, ненужных функций, убедимся в оригинальности',
-        'image': 'images/coffee_stakan_1.png',
+        'image': 'images/coffee_stakan_1.webp',
         'alt': 'Новые кофемашины',
     },
     {
         'title': 'Поддержанные кофемашины',
         'desc': 'Подберем варианты под Ваши потребности, обслужим, дадим гарантию. Ваш идеальный кофе — без переплат',
-        'image': 'images/coffee_stakan_2.png',
+        'image': 'images/coffee_stakan_2.webp',
         'alt': 'Б/у кофемашины',
     },
 ]
@@ -72,8 +72,8 @@ RENT_ITEMS = [
         'desc': 'оборудование для традиционного приготовления эспрессо и других горячих напитков. Необходимая дозировка производится в автоматическом режиме, есть возможность установки высокой посуды для выдачи напитка',
         'price': '5 000 ₽/мес',
         'variants': [
-            {'image': 'images/rent-machine/rent-machine-1.png'},
-            {'image': 'images/rent-machine/rent-machine-2.png'},
+            {'image': 'images/rent-machine/rent-machine-1.webp'},
+            {'image': 'images/rent-machine/rent-machine-2.webp'},
         ],
     },
     {
@@ -81,8 +81,8 @@ RENT_ITEMS = [
         'desc': 'Популярный сетап для старта кофейни. Надежно, быстро, точно.',
         'price': '7 000 ₽/мес',
         'variants': [
-            {'image': 'images/rent-machine/rent-machine-3.jpg'},
-            {'image': 'images/rent-machine/rent-machine-4.jpg'},
+            {'image': 'images/rent-machine/rent-machine-3.webp'},
+            {'image': 'images/rent-machine/rent-machine-4.webp'},
         ],
     },
     {
@@ -90,8 +90,8 @@ RENT_ITEMS = [
         'desc': 'Популярный сетап для старта кофейни. Надежно, быстро, точно.',
         'price': '8 000 ₽/мес',
         'variants': [
-            {'image': 'images/rent-machine/rent-machine-8.jpg'},
-            {'image': 'images/rent-machine/rent-machine-4.jpg'},
+            {'image': 'images/rent-machine/rent-machine-8.webp'},
+            {'image': 'images/rent-machine/rent-machine-4.webp'},
         ],
     },
     {
@@ -99,8 +99,8 @@ RENT_ITEMS = [
         'desc': 'Неизменная стабильность приготовления эспрессо от Simonelli, точность помола от Fiorenzato - лучший выбор для Вашего бизнеса.',
         'price': '9 000 ₽/мес',
         'variants': [
-            {'image': 'images/rent-machine/rent-machine-5.jpg'},
-            {'image': 'images/rent-machine/rent-machine-6.jpg'},
+            {'image': 'images/rent-machine/rent-machine-5.webp'},
+            {'image': 'images/rent-machine/rent-machine-6.webp'},
         ],
     },
     {
@@ -108,8 +108,8 @@ RENT_ITEMS = [
         'desc': 'Неизменная стабильность приготовления эспрессо от Simonelli, точность помола от Fiorenzato - лучший выбор для Вашего бизнеса.',
         'price': '11 000 ₽/мес',
         'variants': [
-            {'image': 'images/rent-machine/rent-machine-7.jpg'},
-            {'image': 'images/rent-machine/rent-machine-6.jpg'},
+            {'image': 'images/rent-machine/rent-machine-7.webp'},
+            {'image': 'images/rent-machine/rent-machine-6.webp'},
         ],
     },
 ]
