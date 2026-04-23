@@ -11,3 +11,10 @@ build
 logs
 *.log
 .env
+*.md
+Caddyfile
+docker-compose*.yml
+static/images/*.png
+static/images/*.jpg
+static/images/rent-machine/*.png
+static/images/rent-machine/*.jpg
