@@ -8,14 +8,19 @@
     <meta name="theme-color" content="#F0EBE3">
     <link rel="preload" href="{{ url_for('static', path='css/style.css') }}?v=1.2" as="style">
     <link rel="preload" href="{{ url_for('static', path='css/bootstrap.min.css') }}?v=5.3.3" as="style">
+    <link rel="preload" as="image" fetchpriority="high"
+          href="{{ url_for('static', path='images/coffee_machine_1.webp') }}"
+          imagesrcset="{{ url_for('static', path='images/coffee_machine_1-sm.webp') }} 300w, {{ url_for('static', path='images/coffee_machine_1.webp') }} 450w"
+          imagesizes="(max-width: 768px) 228px, 450px">
     <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap.min.css') }}?v=5.3.3">
     <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap-icons.min.css') }}?v=1.11" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="{{ url_for('static', path='css/google-fonts.css') }}?v=1.0" media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap-icons.min.css') }}?v=1.11">
         <link rel="stylesheet" href="{{ url_for('static', path='css/google-fonts.css') }}?v=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/swiper-bundle.min.css') }}?v=11">
     </noscript>
-    <link rel="stylesheet" href="{{ url_for('static', path='css/swiper-bundle.min.css') }}?v=11">
+    <link id="swiperCss" rel="stylesheet" href="{{ url_for('static', path='css/swiper-bundle.min.css') }}?v=11" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}?v=1.2">
 </head>
 <body>
@@ -55,9 +60,18 @@
                 <div class="col-6"></div>
             </div>
             <div class="machine-wrapper">
-                <img src="{{ url_for('static', path='images/grain_layer_1.webp') }}" alt="" class="grain grain-back">
-                <img src="{{ url_for('static', path='images/coffee_machine_1.webp') }}" alt="Кофемашина" class="machine">
-                <img src="{{ url_for('static', path='images/grain_layer_2.webp') }}" alt="" class="grain grain-front">
+                <img src="{{ url_for('static', path='images/grain_layer_1.webp') }}"
+                     srcset="{{ url_for('static', path='images/grain_layer_1-sm.webp') }} 161w, {{ url_for('static', path='images/grain_layer_1.webp') }} 322w"
+                     sizes="(max-width: 768px) 150px, 322px"
+                     alt="" class="grain grain-back" fetchpriority="low">
+                <img src="{{ url_for('static', path='images/coffee_machine_1.webp') }}"
+                     srcset="{{ url_for('static', path='images/coffee_machine_1-sm.webp') }} 300w, {{ url_for('static', path='images/coffee_machine_1.webp') }} 450w"
+                     sizes="(max-width: 768px) 228px, 450px"
+                     alt="Кофемашина" class="machine" fetchpriority="high">
+                <img src="{{ url_for('static', path='images/grain_layer_2.webp') }}"
+                     srcset="{{ url_for('static', path='images/grain_layer_2-sm.webp') }} 200w, {{ url_for('static', path='images/grain_layer_2.webp') }} 400w"
+                     sizes="(max-width: 768px) 150px, 400px"
+                     alt="" class="grain grain-front" fetchpriority="low">
             </div>
         </div>
     </section>
@@ -257,6 +271,6 @@
     <script src="{{ url_for('static', path='js/swiper-bundle.min.js') }}?v=11"></script>
     <script src="{{ url_for('static', path='js/bootstrap.bundle.min.js') }}?v=5.3.3"></script>
     <script src="{{ url_for('static', path='js/feedback.js') }}?v=1.1"></script>
-    <script src="{{ url_for('static', path='js/main.js') }}?v=1.1"></script>
+    <script src="{{ url_for('static', path='js/main.js') }}?v=1.2"></script>
 </body>
 </html>

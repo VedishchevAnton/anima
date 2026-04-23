@@ -1,34 +1,45 @@
-// Rent Swiper
-if (document.querySelector('.rent-swiper')) {
-    new Swiper('.rent-swiper', {
-        slidesPerView: 1.5,
-        spaceBetween: 24,
-        loop: false,
-        watchOverflow: true,
-        allowTouchMove: false,
-        navigation: {
-            prevEl: '.rent-prev',
-            nextEl: '.rent-next'
-        },
-        breakpoints: {
-            0: { slidesPerView: 1 },
-            768: { slidesPerView: 1.5 }
-        }
+// Init Swipers after CSS is ready
+function initSwipers() {
+    // Rent Swiper
+    if (document.querySelector('.rent-swiper')) {
+        new Swiper('.rent-swiper', {
+            slidesPerView: 1.5,
+            spaceBetween: 24,
+            loop: false,
+            watchOverflow: true,
+            allowTouchMove: false,
+            navigation: {
+                prevEl: '.rent-prev',
+                nextEl: '.rent-next'
+            },
+            breakpoints: {
+                0: { slidesPerView: 1 },
+                768: { slidesPerView: 1.5 }
+            }
+        });
+    }
+
+    // Rent card inner galleries
+    document.querySelectorAll('.rent-card-gallery').forEach(function(el) {
+        new Swiper(el, {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: false,
+            pagination: {
+                el: el.querySelector('.rent-card-pagination'),
+                clickable: true
+            }
+        });
     });
 }
 
-// Rent card inner galleries
-document.querySelectorAll('.rent-card-gallery').forEach(function(el) {
-    new Swiper(el, {
-        slidesPerView: 1,
-        spaceBetween: 0,
-        loop: false,
-        pagination: {
-            el: el.querySelector('.rent-card-pagination'),
-            clickable: true
-        }
-    });
-});
+// Wait for swiper CSS to load before initializing
+var swiperLink = document.getElementById('swiperCss');
+if (!swiperLink || swiperLink.media === 'all') {
+    initSwipers();
+} else {
+    swiperLink.addEventListener('load', initSwipers);
+}
 
 // Yandex Map — lazy load when contacts section is near viewport
 (function() {
