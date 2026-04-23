@@ -7,7 +7,6 @@ from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from starlette.middleware import Middleware
 from starlette.middleware.base import BaseHTTPMiddleware
 
 from config import settings

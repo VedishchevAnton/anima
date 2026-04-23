@@ -6,10 +6,21 @@
     var messageEl = document.getElementById('modalMessage');
     var phoneInput = document.getElementById('phoneInput');
 
+    // Lazy load reCAPTCHA
+    var recaptchaLoaded = false;
+    function loadRecaptcha() {
+        if (recaptchaLoaded) return;
+        recaptchaLoaded = true;
+        var script = document.createElement('script');
+        script.src = 'https://www.google.com/recaptcha/api.js';
+        document.head.appendChild(script);
+    }
+
     // Open modal
     document.querySelectorAll('[data-modal="feedback"]').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
+            loadRecaptcha();
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
@@ -105,7 +116,7 @@
 
         if (!message) { showError('message', 'Введите сообщение'); valid = false; }
 
-        var captcha = grecaptcha.getResponse();
+        var captcha = (typeof grecaptcha !== 'undefined') ? grecaptcha.getResponse() : '';
         if (!captcha) {
             document.getElementById('captchaError').textContent = 'Подтвердите, что вы не робот';
             valid = false;
@@ -146,7 +157,7 @@
                         showError(key, data.errors[key]);
                     }
                 }
-                grecaptcha.reset();
+                if (typeof grecaptcha !== 'undefined') grecaptcha.reset();
             }
         })
         .catch(function() {

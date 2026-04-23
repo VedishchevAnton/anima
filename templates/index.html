@@ -6,16 +6,17 @@
     <title>{{ page_title }}</title>
     <meta name="description" content="{{ page_description }}">
     <meta name="theme-color" content="#F0EBE3">
-    <link rel="preconnect" href="https://www.google.com">
-    <link rel="preconnect" href="https://api-maps.yandex.ru">
     <link rel="preload" href="{{ url_for('static', path='css/style.css') }}?v=1.2" as="style">
     <link rel="preload" href="{{ url_for('static', path='css/bootstrap.min.css') }}?v=5.3.3" as="style">
     <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap.min.css') }}?v=5.3.3">
-    <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap-icons.min.css') }}?v=1.11">
-    <link rel="stylesheet" href="{{ url_for('static', path='css/google-fonts.css') }}?v=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap-icons.min.css') }}?v=1.11" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ url_for('static', path='css/google-fonts.css') }}?v=1.0" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="{{ url_for('static', path='css/bootstrap-icons.min.css') }}?v=1.11">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/google-fonts.css') }}?v=1.0">
+    </noscript>
     <link rel="stylesheet" href="{{ url_for('static', path='css/swiper-bundle.min.css') }}?v=11">
     <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}?v=1.2">
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 
@@ -222,7 +223,7 @@
                     </div>
                 </div>
                 <div class="col-7 contacts-map-col">
-                    <div id="contacts-map"></div>
+                    <div id="contacts-map" data-api-key="{{ YANDEX_MAP_API_KEY }}"></div>
                 </div>
             </div>
         </div>
@@ -253,10 +254,9 @@
 
     {% include "feedback_modal.html" %}
 
-    <script src="https://api-maps.yandex.ru/2.1/?apikey={{ YANDEX_MAP_API_KEY }}&lang=ru_RU"></script>
     <script src="{{ url_for('static', path='js/swiper-bundle.min.js') }}?v=11"></script>
     <script src="{{ url_for('static', path='js/bootstrap.bundle.min.js') }}?v=5.3.3"></script>
-    <script src="{{ url_for('static', path='js/feedback.js') }}?v=1.0"></script>
-    <script src="{{ url_for('static', path='js/main.js') }}?v=1.0"></script>
+    <script src="{{ url_for('static', path='js/feedback.js') }}?v=1.1"></script>
+    <script src="{{ url_for('static', path='js/main.js') }}?v=1.1"></script>
 </body>
 </html>

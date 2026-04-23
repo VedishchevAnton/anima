@@ -30,17 +30,37 @@ document.querySelectorAll('.rent-card-gallery').forEach(function(el) {
     });
 });
 
-// Yandex Map
-ymaps.ready(function () {
-    var map = new ymaps.Map('contacts-map', {
-        center: [56.7688, 60.6336],
-        zoom: 16,
-        controls: ['zoomControl', 'fullscreenControl']
-    });
-    map.geoObjects.add(new ymaps.Placemark([56.7688, 60.6336], {
-        balloonContent: '620000, г. Екатеринбург, ул. Новостроя 1Б'
-    }, {
-        preset: 'islands#redDotIcon'
-    }));
-    map.behaviors.disable('scrollZoom');
-});
+// Yandex Map — lazy load when contacts section is near viewport
+(function() {
+    var mapEl = document.getElementById('contacts-map');
+    if (!mapEl) return;
+    var loaded = false;
+    var observer = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting && !loaded) {
+            loaded = true;
+            observer.disconnect();
+            var apiKey = mapEl.getAttribute('data-api-key') || '';
+            var script = document.createElement('script');
+            var mapUrl = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+            if (apiKey) mapUrl += '&apikey=' + apiKey;
+            script.src = mapUrl;
+            script.onload = function() {
+                ymaps.ready(function() {
+                    var map = new ymaps.Map('contacts-map', {
+                        center: [56.7688, 60.6336],
+                        zoom: 16,
+                        controls: ['zoomControl', 'fullscreenControl']
+                    });
+                    map.geoObjects.add(new ymaps.Placemark([56.7688, 60.6336], {
+                        balloonContent: '620000, г. Екатеринбург, ул. Новостроя 1Б'
+                    }, {
+                        preset: 'islands#redDotIcon'
+                    }));
+                    map.behaviors.disable('scrollZoom');
+                });
+            };
+            document.body.appendChild(script);
+        }
+    }, { rootMargin: '300px' });
+    observer.observe(mapEl);
+})();
