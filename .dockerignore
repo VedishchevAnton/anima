@@ -17,5 +17,6 @@ docker-compose*.yml
 static/images/*.png
 static/images/*.jpg
 !static/images/favicon.jpg
+!static/images/coffee_machine_1.png
 static/images/rent-machine/*.png
 static/images/rent-machine/*.jpg
