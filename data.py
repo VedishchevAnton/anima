@@ -67,15 +67,15 @@ CONTACT_INFO = [
 ]
 
 RENT_ITEMS = [
-    {
-        'title': 'Кофемашина рожковая Nuova Simonelli Aurelia WAVE',
-        'desc': 'оборудование для традиционного приготовления эспрессо и других горячих напитков. Необходимая дозировка производится в автоматическом режиме, есть возможность установки высокой посуды для выдачи напитка',
-        'price': '5 000 ₽/мес',
-        'variants': [
-            {'image': 'images/rent-machine/rent-machine-1.webp'},
-            {'image': 'images/rent-machine/rent-machine-2.webp'},
-        ],
-    },
+    # {
+    #     'title': 'Кофемашина рожковая Nuova Simonelli Aurelia WAVE',
+    #     'desc': 'оборудование для традиционного приготовления эспрессо и других горячих напитков. Необходимая дозировка производится в автоматическом режиме, есть возможность установки высокой посуды для выдачи напитка',
+    #     'price': '5 000 ₽/мес',
+    #     'variants': [
+    #         {'image': 'images/rent-machine/rent-machine-1.webp'},
+    #         {'image': 'images/rent-machine/rent-machine-2.webp'},
+    #     ],
+    # },
     {
         'title': 'Комплект кофемашина MCE Start 1gr + кофемолка Cunill Tron',
         'desc': 'Популярный сетап для старта кофейни. Надежно, быстро, точно.',
