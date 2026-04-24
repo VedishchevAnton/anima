@@ -6,7 +6,7 @@ class Settings:
 
     # Google reCAPTCHA v2
     # Тестовые ключи Google (работают на localhost)
-    # Для продакшена задать через переменные окружения
+    # Продакшен (animacoffee.pro): 6Lf4qscsAAAAANMawXOY9pQVXhwTTIXkqLQC-_Ue / 6Lf4qscsAAAAAAwyN7zw0fJc_3Rb6fHxNTvdTrTC
     RECAPTCHA_SITE_KEY: str = os.getenv(
         "RECAPTCHA_SITE_KEY", "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
     )
@@ -16,7 +16,7 @@ class Settings:
 
     # Yandex Maps
     # Получить ключ: https://developer.tech.yandex.ru/
-    YANDEX_MAP_API_KEY: str = os.getenv("YANDEX_MAP_API_KEY", "")
+    YANDEX_MAP_API_KEY: str = os.getenv("YANDEX_MAP_API_KEY", "40546000-1e1e-4551-91b5-635af6c5c74f")
 
     # Email (SMTP)
     # Для Mail.ru: smtp.mail.ru:465
