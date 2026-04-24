@@ -86,7 +86,7 @@ def send_email(subject: str, body: str):
     msg["From"] = settings.EMAIL_FROM
     msg["To"] = settings.FEEDBACK_EMAIL
 
-    with smtplib.SMTP_SSL(settings.EMAIL_HOST, settings.EMAIL_PORT) as server:
+    with smtplib.SMTP_SSL(settings.EMAIL_HOST, settings.EMAIL_PORT, timeout=10) as server:
         server.login(settings.EMAIL_USER, settings.EMAIL_PASSWORD)
         server.send_message(msg)
 
