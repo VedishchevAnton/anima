@@ -343,9 +343,11 @@ section {
     color: var(--cl-text-gray);
     margin-bottom: 0;
 }
+.s-service .btn-cta,
 .s-rent .btn-cta,
-.s-roasting .btn-cta {
-    margin-top: 8px;
+.s-roasting .btn-cta,
+.s-selection .btn-cta {
+    margin-top: 40px;
 }
 .rent-slider-col {
     position: relative;
