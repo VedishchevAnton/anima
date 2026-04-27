@@ -95,8 +95,9 @@ section {
     height: 164px;
 }
 .header-logo img {
-    height: 40px;
+    height: 100px;
     width: auto;
+    margin-top: -10px;
 }
 .header-nav {
     display: flex;
@@ -577,12 +578,13 @@ section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 0;
 }
 
 .footer-logo img {
-    height: 40px;
+    height: 100px;
     width: auto;
+    margin-left: -20px;
 }
 
 .footer-nav {
