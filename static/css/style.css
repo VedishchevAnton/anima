@@ -613,7 +613,7 @@ section {
     inset: 0;
     background: rgba(0, 0, 0, 0.6);
     z-index: 9999;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -633,6 +633,8 @@ section {
     max-width: 600px;
     width: 90%;
     position: relative;
+    margin: auto;
+    overflow: hidden;
 }
 
 .modal-close {
@@ -709,6 +711,11 @@ section {
 
 .modal-form-bottom {
     margin-bottom: 16px;
+    min-height: 78px;
+    overflow: hidden;
+}
+.modal-form-bottom .g-recaptcha {
+    transform-origin: 0 0;
 }
 
 .btn-modal-submit {
@@ -1125,7 +1132,7 @@ section {
         margin-bottom: 8px;
     }
     .modal-form-bottom .g-recaptcha {
-        transform: scale(0.85);
+        transform: scale(0.77);
         transform-origin: 0 0;
     }
     .promo-medal-center {
