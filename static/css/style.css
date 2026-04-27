@@ -1064,7 +1064,7 @@ section {
 /* ≤ 575px */
 @media (max-width: 575px) {
     .s-intro {
-        padding-top: 130px;
+        padding-top: 160px;
     }
     .header-nav a {
         font-size: 12px;
