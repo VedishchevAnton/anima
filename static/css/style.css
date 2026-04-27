@@ -817,6 +817,17 @@ section {
     .selection-card-desc {
         font-size: 20px;
     }
+    .s-catalog,
+    .s-partner {
+        height: auto;
+        padding: 40px 0;
+    }
+    .s-catalog-inner,
+    .s-partner-inner {
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+    }
     .header-inner {
         flex-direction: column;
         align-items: center;
@@ -1016,17 +1027,6 @@ section {
     .rent-feature-desc {
         font-size: 18px;
     }
-    .s-catalog,
-    .s-partner {
-        height: auto;
-        padding: 40px 0;
-    }
-    .s-catalog-inner,
-    .s-partner-inner {
-        flex-direction: column;
-        gap: 24px;
-        text-align: center;
-    }
     .s-catalog-title,
     .s-partner-title {
         font-size: 28px;
@@ -1091,7 +1091,12 @@ section {
         font-size: 18px;
     }
     .modal-window {
-        padding: 32px 24px;
+        padding: 24px 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    .modal-form-group {
+        margin-bottom: 8px;
     }
     .modal-form-row {
         flex-direction: column;
@@ -1099,6 +1104,13 @@ section {
     }
     .modal-title {
         font-size: 22px;
+        margin-bottom: 4px;
+    }
+    .modal-subtitle {
+        margin-bottom: 8px;
+    }
+    .modal-form-bottom {
+        margin-bottom: 8px;
     }
     .modal-form-bottom .g-recaptcha {
         transform: scale(0.85);
