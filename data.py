@@ -2,7 +2,9 @@ NAV_ITEMS = [
     {'label': 'Обслуживание', 'href': '#service'},
     {'label': 'Аренда', 'href': '#rent'},
     {'label': 'Подбор', 'href': '#selection'},
-    {'label': 'Кофе', 'href': 'https://anima.market/', 'target': '_blank'},
+    # {'label': 'Кофе', 'href': 'https://anima.market/', 'target': '_blank'},
+    {'label': 'Кофе', 'href': '#shop'},
+
 ]
 
 SOCIAL_LINKS = [
