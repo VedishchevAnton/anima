@@ -20,6 +20,4 @@ static/images/*.jpg
 static/images/rent-machine/*.png
 static/images/rent-machine/*.jpg
 
-# HTML files - исключаем все, но кроме файла верификации Яндекса
 *.html
-!yandex_d96a1e7587949a92.html
