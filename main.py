@@ -38,13 +38,13 @@ app.add_middleware(CacheStaticMiddleware)
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Эндпоинт для подтверждения Яндекс.Вебмастера
-@app.get("/yandex_d96a1e7587949a92.html", response_class=HTMLResponse)
+@app.get("/yandex_5ecc045aab5a8c00.html", response_class=HTMLResponse)
 async def yandex_verification():
     return HTMLResponse(content="""<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-</head>
-<body>Verification: d96a1e7587949a92</body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>Verification: 5ecc045aab5a8c00</body>
 </html>""")
 
 templates = Jinja2Templates(directory="templates")
