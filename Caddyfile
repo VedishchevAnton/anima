@@ -1,3 +1,8 @@
 {$DOMAIN} {
     reverse_proxy web:8000
 }
+
+# Бот MAX (проект max-bot): пульт менеджера и адрес для 1С
+{$BOT_DOMAIN} {
+    reverse_proxy max-bot:8080
+}

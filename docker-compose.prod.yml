@@ -18,10 +18,15 @@ services:
       - "443:443"
     environment:
       - DOMAIN=${DOMAIN}
+      # Адрес бота MAX; без BOT_DOMAIN в .env — bot.localhost, чтобы Caddy запускался и без бота.
+      - BOT_DOMAIN=${BOT_DOMAIN:-bot.localhost}
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - caddy_data:/data
       - caddy_config:/config
+    networks:
+      - default
+      - proxy
     depends_on:
       - web
     restart: unless-stopped
@@ -29,3 +34,8 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+
+networks:
+  # Общая сеть с ботом MAX (проект max-bot). Создаётся один раз: docker network create proxy
+  proxy:
+    external: true
